@@ -24,7 +24,7 @@ docker logs avidan-container-demo -f
 
 ### bash to the container
 ```bash
-docker exec -it our-demo bash
+docker exec -it avidan-container-demo bash
 ```
 
 
