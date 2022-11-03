@@ -8,23 +8,23 @@ mkdir from_container
 ```
 # Build docker Image
 ```bash
-docker image build -t avidan-container .
+docker image build -t ajevnisek/avidan-container-demo .
 ```
 
 
 # Run docker Container
 ```bash
-docker run --rm --name avidan-container-demo -dit -v ~/Desktop/sandbox/avidan-docker/from_container:/results avidan-container bash
+docker run --rm --name container-demo -dit -v ~/Desktop/sandbox/avidan-docker/from_container:/results ajevnisek/avidan-container-demo bash
 ```
 ## Debug
 ### watch logs
 ```bash
-docker logs avidan-container-demo -f
+docker logs container-demo -f
 ```
 
 ### bash to the container
 ```bash
-docker exec -it avidan-container-demo bash
+docker exec -it container-demo bash
 ```
 
 
@@ -34,3 +34,7 @@ Clear all docker cache:
 docker system prune -a
 ```
 
+# Run this image with run:ai:
+```bash
+runai submit -g 1 --name avidan-container-demo -i ajevnisek/avidan-docker-cuda-ubuntu-16.04-conda -v ~/Desktop/sandbox/avidan-docker/from_container:/results --pvc=storage:/storage
+```
